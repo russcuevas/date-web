@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>THANKYOUUUUUUUUUUU</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('heart-green.gif') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .card h1 {
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #28a745;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="audio" loop autoplay>
+        <source src="saturn.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div class="card">
+        <h1>ILAGAY MO NA ANG DATE DAHIL GUSTO NA KITA MAKITA CHAROT HAHAHAHAHAHA 💚💚</h1>
+        <p id="date-display">Date: </p>
+
+        <form id="date-form">
+            <div class="form-group">
+                <label for="date-input">Choose a date:</label>
+                <input type="date" id="date-input" class="form-control" required>
+            </div>
+            <button style="margin-top: 20px;" type="submit" class="btn btn-outline-success">Save Date</button>
+        </form>
+        <p id="confirmation" style="margin-top: 20px;"></p>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const savedDate = localStorage.getItem('savedDate');
+            if (savedDate) {
+                document.getElementById('date-display').innerHTML = `Date: <strong>${savedDate}</strong>`;
+            }
+        };
+
+        document.getElementById('date-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const dateInput = document.getElementById('date-input').value;
+            const dateDisplay = document.getElementById('date-display');
+            const confirmationMessage = document.getElementById('confirmation');
+            dateDisplay.innerHTML = `Date: <strong>${dateInput}</strong>`;
+            confirmationMessage.innerHTML = "Pag kalagay mo ng date screenshot mo at isend mo saakin gusto ko lang sabihin sayo na thankyou sa lahat at <br> I love you palagi florielyn mae 💚💚 <br> - LOVE RUSS -";
+            localStorage.setItem('savedDate', dateInput);
+            document.getElementById('date-input').value = '';
+        });
+    </script>
+</body>
+
+</html>
